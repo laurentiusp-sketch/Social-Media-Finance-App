@@ -1,5 +1,7 @@
 import 'package:fintech_app2/views/page/chat_page.dart';
 import 'package:fintech_app2/views/page/profile_page.dart';
+import 'package:fintech_app2/controllers/auth/auth_service.dart';
+import 'package:fintech_app2/main.dart';
 import 'package:flutter/material.dart';
 import '../../../../views/page/colors.dart';
 import '../../../../views/page/finance_literacy_tab.dart';
@@ -44,6 +46,53 @@ class _HomePageState extends State<HomePage>
     ];
 
     return pages[_bottomNavIndex];
+  }
+
+  Future<void> _handleLogout() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: AppColors.primaryBackground,
+          title: const Text('Logout', style: TextStyle(color: Colors.white)),
+          content: const Text(
+            'Are you sure you want to logout?',
+            style: TextStyle(color: Colors.white70),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text(
+                'Cancel',
+                style: TextStyle(color: Colors.white70),
+              ),
+            ),
+            TextButton(
+              onPressed: () async {
+                Navigator.of(context).pop();
+                try {
+                  await AuthService().signOut();
+                  if (mounted) {
+                    Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) => const MyApp()),
+                      (Route<dynamic> route) => false,
+                    );
+                  }
+                } catch (e) {
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text('Logout failed: $e')));
+                }
+              },
+              child: const Text(
+                'Logout',
+                style: TextStyle(color: Colors.redAccent),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -243,6 +292,10 @@ class _HomePageState extends State<HomePage>
                 color: Colors.white,
                 size: 28,
               ),
+            ),
+            IconButton(
+              onPressed: _handleLogout,
+              icon: const Icon(Icons.logout, color: Colors.white, size: 28),
             ),
           ],
         ),

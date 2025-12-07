@@ -16,12 +16,12 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width ?? double.infinity, // Default full width kalau tidak diisi
+      width: width ?? double.infinity,
       height: 50,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.white, // Warna background tombol
-          foregroundColor: AppColors.textDark, // Warna teks
+          backgroundColor: AppColors.white,
+          foregroundColor: AppColors.textDark,
           elevation: 2,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
@@ -30,10 +30,7 @@ class PrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold, // Lebih tebal untuk aksi utama
-          ),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
       ),
     );
