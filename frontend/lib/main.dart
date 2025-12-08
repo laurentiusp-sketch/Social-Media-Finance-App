@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/views/page/home_page.dart';
+import 'package:frontend/views/page/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
       ),
-      home: const HomePage(),
+      home: const LoginPage(),
     );
   }
 }
