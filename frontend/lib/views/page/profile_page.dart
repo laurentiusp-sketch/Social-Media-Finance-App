@@ -166,7 +166,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        // 👇👇👇 INI LOGIKA REALTIME NYA 👇👇👇
+                        // LOGIKA REALTIME
                         _buildActionButton(
                           Icons.send_rounded, 
                           "Transfer", 
@@ -186,7 +186,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             }
                           }
                         ),
-                        // 👆👆👆 LOGIKA SELESAI 👆👆👆
+                        //  LOGIKA SELESAI 
 
                         _buildActionButton(Icons.qr_code_scanner, "Scan QR", Colors.blue, () => _navigateTo("Scan QR")),
                         _buildActionButton(Icons.add_card, "Top Up", Colors.orange, () => _navigateTo("Top Up")),
