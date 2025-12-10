@@ -125,7 +125,7 @@ class _ExploreSettingsPageState extends State<ExploreSettingsPage> {
                       },
                     ),
 
-                    const SizedBox(height: 30), // Spasi bawah tambahan
+                    const SizedBox(height: 30), 
                   ],
                 ),
               ),
